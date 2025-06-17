@@ -7,7 +7,7 @@
 #include <opencv2/opencv.hpp>
 #include <torch/torch.h>
 #include <unordered_map>
-
+#include <random>
 class ImageNetDataset
 {
 public:
@@ -18,9 +18,11 @@ public:
   std::vector<int> labels;
   std::unordered_map<std::string, int> class_to_index;
   std::unordered_map<int, std::string> index_to_class;
+  bool train = true;
 
-  ImageNetDataset(bool train = true, int num_classes = 1000)
+  ImageNetDataset(bool is_train = true, int num_classes = 1000)
   {
+    train = is_train;
     // Cargar imágenes y etiquetas
     if (train)
     {
@@ -103,8 +105,41 @@ public:
   torch::Tensor load_image(const std::string &image_path)
   {
     cv::Mat img = cv::imread(image_path, cv::IMREAD_COLOR);
+    cv::resize(img, img, cv::Size(224, 224)); // Resize a 224x224 
 
-    return torch::from_blob(img.data, {img.rows, img.cols, 3}, torch::kUInt8).clone();
+    torch::Tensor image = torch::from_blob(img.data, {img.rows, img.cols, 3}, torch::kUInt8).clone();
+    image = image.permute({2, 0, 1}); // De HWC a CHW
+
+    image = normalize_image(image);
+
+    if (train)
+    {
+      image = random_horizontal_flip(image);
+    }
+
+    return image;
+  }
+
+  torch::Tensor normalize_image(torch::Tensor image)
+  {
+    image = image.to(torch::kFloat32).div(255); // Convert to float and scale to [0, 1]
+
+    // Reshape mean and std to match image dimensions [3, 1, 1] for broadcasting
+    auto mean = torch::tensor({0.485, 0.456, 0.406}).view({3, 1, 1});
+    auto std = torch::tensor({0.229, 0.224, 0.225}).view({3, 1, 1});
+
+    return (image - mean) / std;
+  }
+
+  torch::Tensor random_horizontal_flip(torch::Tensor image, double p = 0.5)
+  {
+    static std::mt19937 gen(std::random_device{}());
+    std::bernoulli_distribution dist(p);
+    if (dist(gen))
+    {
+      image = image.flip({1}); // flip en ancho
+    }
+    return image;
   }
 
   std::pair<torch::Tensor, int> get_item(int index)
