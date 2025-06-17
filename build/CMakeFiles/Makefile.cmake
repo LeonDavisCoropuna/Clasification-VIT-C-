@@ -7,13 +7,13 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/leon/Documentos/UNSA/TOPICOS IA/opencv/build/OpenCVConfig-version.cmake"
-  "/home/leon/Documentos/UNSA/TOPICOS IA/opencv/build/OpenCVConfig.cmake"
-  "/home/leon/Documentos/UNSA/TOPICOS IA/opencv/build/OpenCVModules.cmake"
   "../CMakeLists.txt"
   "CMakeFiles/3.22.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.22.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.22.1/CMakeSystem.cmake"
+  "/home/leon/Documentos/UNSA/TOPICOS IA/opencv/build/OpenCVConfig-version.cmake"
+  "/home/leon/Documentos/UNSA/TOPICOS IA/opencv/build/OpenCVConfig.cmake"
+  "/home/leon/Documentos/UNSA/TOPICOS IA/opencv/build/OpenCVModules.cmake"
   "/home/leon/libtorch/share/cmake/Caffe2/Caffe2Config.cmake"
   "/home/leon/libtorch/share/cmake/Caffe2/Caffe2Targets-release.cmake"
   "/home/leon/libtorch/share/cmake/Caffe2/Caffe2Targets.cmake"

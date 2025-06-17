@@ -1,5 +1,5 @@
 CMakeFiles/main.dir/main.cpp.o: \
- /home/leon/Documentos/UNSA/TOPICOS\ IA/perceptron/main.cpp \
+ /home/leon/Documentos/UNSA/TOPICOS\ IA/Clasification-VIT-C-/main.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -5064,10 +5064,13 @@ CMakeFiles/main.dir/main.cpp.o: \
  /home/leon/libtorch/include/torch/csrc/api/include/torch/special.h \
  /home/leon/libtorch/include/torch/csrc/api/include/torch/version.h \
  /home/leon/libtorch/include/torch/csrc/api/include/torch/xpu.h \
- /home/leon/Documentos/UNSA/TOPICOS\ IA/perceptron/data_loaders/image_net.h \
+ /home/leon/Documentos/UNSA/TOPICOS\ IA/Clasification-VIT-C-/data_loaders/image_net.h \
  /usr/include/c++/11/fstream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc /usr/include/dirent.h \
  /usr/include/x86_64-linux-gnu/bits/dirent.h \
- /usr/include/x86_64-linux-gnu/bits/dirent_ext.h
+ /usr/include/x86_64-linux-gnu/bits/dirent_ext.h \
+ /usr/include/c++/11/random /usr/include/c++/11/bits/random.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h \
+ /usr/include/c++/11/bits/random.tcc
